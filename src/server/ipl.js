@@ -98,7 +98,7 @@ const extraRunsIn2016 = (matches,deliveries) => {
     
     
       var runs = deliveries.reduce((acc, delivery) => {
-        if (parseInt(delivery.match_id) >=matches2015[0] && parseInt(delivery.match_id) >= matches2015[matches2015.length-1]) {                                       // Function Will return total number of run given by bowler 
+        if (parseInt(delivery.match_id) >=matches2015[0] && parseInt(delivery.match_id) <= matches2015[matches2015.length-1]) {                                       // Function Will return total number of run given by bowler 
           if (acc[delivery.bowler]) {
             acc[delivery.bowler] = acc[delivery.bowler] + parseInt(delivery.total_runs)
           }

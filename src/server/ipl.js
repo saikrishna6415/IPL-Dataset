@@ -55,12 +55,12 @@ const numberOfmatchesWonPerTeamPerYear = (matches) => {
 
 
 const extraRunsIn2016 = (matches,deliveries) => {
-    var matches2016 =[ ]
-    for (let i = 0; i< matches.length; i++) {
-        if (matches[i]['season'] === '2016') {
-            matches2016.push(parseInt(matches[i]['id']))
-        }
-    }
+var matches2016 =[ ]
+for (let i = 0; i< matches.length; i++) {
+    if (matches[i]['season'] === '2016') {
+          matches2016.push(parseInt(matches[i]['id']))
+      }
+  }
     return deliveries.reduce((acc, delivery) => {
         if ((delivery.match_id >= matches2016[0] && delivery.match_id <= matches2016[matches2016.length-1]) ) {
           if (acc[delivery.bowling_team]) {   
@@ -85,12 +85,14 @@ const extraRunsIn2016 = (matches,deliveries) => {
 
     var balls = deliveries.reduce((acc, delivery) => {
         if (parseInt(delivery.match_id) >=matches2015[0] && parseInt(delivery.match_id) <= matches2015[matches2015.length-1]) { 
+         if (delivery.noball_runs === "0"){
           if ( acc[delivery.bowler]) {
             acc[delivery.bowler]++
           }
           else {
             acc[delivery.bowler] = 1
           }
+        }
         }
         return acc
       }, {})

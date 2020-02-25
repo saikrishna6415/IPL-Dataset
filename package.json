@@ -8,7 +8,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "csvtojson": "csvtojson <inputfile>.csv > <output>.json"
   },
   "author": "",
   "license": "ISC"

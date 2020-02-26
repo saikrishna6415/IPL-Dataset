@@ -1,16 +1,18 @@
 var fs=require('fs')
+const path = require('path')
 var results = require('./ipl.js');
-var matches=require('../data/matches');
-var deliveries =    require ('../data/deliveries');
-
+// var matches=require('../data/matches');
+// var deliveries =    require ('../data/deliveries');
+// console.log(__dirname)
+// console.log(__filename)
 
 const csv=require('csvtojson')
-csv().fromFile('../data/matches.csv').then((matches)=>{
-csv().fromFile('../data/deliveries.csv').then((deliveries)=>{
+csv().fromFile(path.join(__dirname, '../data/matches.csv')).then((matches)=>{
+csv().fromFile(path.join(__dirname, '../data/deliveries.csv')).then((deliveries)=>{
     var numberOfMatchesPlayedPerYear = results.numberOfMatchesPlayedPerYear(matches)
     // console.log(numberOfMatchesPlayedPerYear)
     var numberOfMatchesPlayedPerYearJSON = JSON.stringify(numberOfMatchesPlayedPerYear); 
-    fs.writeFile('../output/numberOfMatchesPlayedPerYear.JSON',numberOfMatchesPlayedPerYearJSON,function(error){
+    fs.writeFile(path.join(__dirname,'../output/numberOfMatchesPlayedPerYear.JSON'),numberOfMatchesPlayedPerYearJSON,function(error){
         if(error){
             throw error
         };
@@ -23,7 +25,7 @@ csv().fromFile('../data/deliveries.csv').then((deliveries)=>{
     var numberOfmatchesWonPerTeamPerYear = results.numberOfmatchesWonPerTeamPerYear(matches)
     // console.log(numberOfMatchesPlayedPerYearJSON)
     var numberOfmatchesWonPerTeamPerYearJSON = JSON.stringify(numberOfmatchesWonPerTeamPerYear); 
-    fs.writeFile('../output/numberOfmatchesWonPerTeamPerYear.JSON',numberOfmatchesWonPerTeamPerYearJSON,function(error){
+    fs.writeFile(path.join(__dirname,'../output/numberOfmatchesWonPerTeamPerYear.JSON'),numberOfmatchesWonPerTeamPerYearJSON,function(error){
         if(error){
             throw error
         };
@@ -35,7 +37,7 @@ csv().fromFile('../data/deliveries.csv').then((deliveries)=>{
     var extraRunsIn2016 = results.extraRunsIn2016(matches,deliveries)
     // console.log(extraRunsIn2016)
     var extraRunsIn2016JSON = JSON.stringify(extraRunsIn2016); 
-    fs.writeFile('../output/extraRunsIn2016.JSON',extraRunsIn2016JSON,function(error){              //write output for extraRunsIn2016
+    fs.writeFile(path.join(__dirname,'../output/extraRunsIn2016.JSON'),extraRunsIn2016JSON,function(error){              //write output for extraRunsIn2016
         if(error){
             throw error
         };
@@ -45,7 +47,7 @@ csv().fromFile('../data/deliveries.csv').then((deliveries)=>{
     var EconomicalBowlersForYear = results.economicalBowlers(matches,deliveries)
     // console.log(EconomicalBowlersForYear)
     var EconomicalBowlersForYearJSON = JSON.stringify(EconomicalBowlersForYear); 
-    fs.writeFile('../output/EconomicalBowlersForYear.JSON',EconomicalBowlersForYearJSON,function(error){              //write output for EconomicalBowlersForYear
+    fs.writeFile(path.join(__dirname,'../output/EconomicalBowlersForYear.JSON'),EconomicalBowlersForYearJSON,function(error){              //write output for EconomicalBowlersForYear
         if(error){
             throw error
         };

@@ -13,10 +13,6 @@ const numberOfMatchesPlayedPerYear =(matches) => {
 
 // console.log(numberOfMatchesPlayedPerYear(matches))
 
-
-
-
-
 const numberOfmatchesWonPerTeamPerYear = (matches) => {
   return matches.reduce((matcheswonperyear,match) => {
       if (! matcheswonperyear[match.season]) {

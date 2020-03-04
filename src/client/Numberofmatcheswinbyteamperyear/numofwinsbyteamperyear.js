@@ -1,11 +1,11 @@
 
     fetch('../../output/numberOfmatchesWonPerTeamPerYear.JSON')
                 .then((res) => {
-                    console.log(res)
                     return res.json()
                 })
                 .then(data => {
-                    year = Object.keys(data)
+                    let arr = Object.keys(data)
+                    console.log(arr)
                     Highcharts.chart('container', {
                         chart: {
                             type: 'column',
@@ -23,38 +23,14 @@
                             }
                         },
                         xAxis: {
-                            categories: Object.keys(data)
+                            categories: Object.keys(data) 
                         },
                         yAxis: {
                             title: {
                                 text: 'Number of Matches'
                             }
                         },
-                        series: [{
-                            name: 'Kolkata Knight Riders',
-                            data: Object.values(data['2008'])
-                        },{
-                            name: "Chennai Super Kings",
-                            data: Object.values(data['2009'])
-                        },{
-                            name: 'Kolkata Knight Riders',
-                            data: Object.values(data['2008'])
-                        },{
-                            name: "Chennai Super Kings",
-                            data: Object.values(data['2009'])
-                        },{
-                            name: 'Kolkata Knight Riders',
-                            data: Object.values(data['2008'])
-                        },{
-                            name: "Chennai Super Kings",
-                            data: Object.values(data['2009'])
-                        },{
-                            name: 'Kolkata Knight Riders',
-                            data: Object.values(data['2008'])
-                        },{
-                            name: "Chennai Super Kings",
-                            data: Object.values(data['2009'])
-                        }]
+                        series: Object.values(data)
                     });
 
                 })

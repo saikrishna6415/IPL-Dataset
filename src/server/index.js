@@ -53,7 +53,6 @@ csv().fromFile(path.join(__dirname, '../data/deliveries.csv')).then((deliveries)
         };
         console.log("EconomicalBowlersForYear.JSON file saved successfully!");
     });
-
         })
 })
 

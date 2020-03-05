@@ -4,8 +4,18 @@
                     return res.json()
                 })
                 .then(data => {
-                    let arr = Object.keys(data)
-                    console.log(arr)
+                    let arr1 = Object.keys(data)
+                    let arr2 = Object.values(data)
+                    graphdata = []
+                    const matchesdata = arr1.map(match=>{
+                        let team = { }
+                        team.name = match
+                        team.data = Object.values(data[match])
+                        graphdata.push(team)
+
+
+                    })
+                    console.log(graphdata)
                     Highcharts.chart('container', {
                         chart: {
                             type: 'column',
@@ -19,18 +29,18 @@
                         },
                         plotOptions: {
                             column: {
-                                depth: 25
+                                depth: 35
                             }
                         },
                         xAxis: {
-                            categories: Object.keys(data) 
+                            categories: Object.keys(arr2[2])
                         },
                         yAxis: {
                             title: {
                                 text: 'Number of Matches'
                             }
                         },
-                        series: Object.values(data)
+                        series: graphdata
                     });
 
                 })

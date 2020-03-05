@@ -13,39 +13,39 @@ const numberOfMatchesPlayedPerYear =(matches) => {
 
 // console.log(numberOfMatchesPlayedPerYear(matches))
 
-const numberOfmatchesWonPerTeamPerYear = (matches) => {
-  return matches.reduce((matcheswonperyear,match) => {
-      if (! matcheswonperyear[match.season]) {
-          matcheswonperyear[match.season] = {}                          
-      }   
-      if (matcheswonperyear[match.season][match.winner]) {        //count number of matches played per team per year
-          matcheswonperyear[match.season][match.winner] ++                   // method (i)
-      }
-      else {
-          matcheswonperyear[match.season][match.winner] =1        
-      }
-      return matcheswonperyear;
-  },{})
-}
+// const numberOfmatchesWonPerTeamPerYear = (matches) => {
+//   return matches.reduce((matcheswonperyear,match) => {
+//       if (! matcheswonperyear[match.season]) {
+//           matcheswonperyear[match.season] = {}                          
+//       }   
+//       if (matcheswonperyear[match.season][match.winner]) {        //count number of matches played per team per year
+//           matcheswonperyear[match.season][match.winner] ++                   // method (i)
+//       }
+//       else {
+//           matcheswonperyear[match.season][match.winner] =1        
+//       }
+//       return matcheswonperyear;
+//   },{})
+// }
 // console.log(numberOfmatchesWonPerTeamPerYear(matches))
 
 
 
-// const numberOfmatchesWonPerTeamPerYear = (matches) => {
-//     return matches.reduce((matcheswonperyear,match) => {
-//         if (! matcheswonperyear[match.winner]) {
-//             matcheswonperyear[match.winner] = {}
-//         }
-//         if (matcheswonperyear[match.winner][match.season]) {
-//             matcheswonperyear[match.winner][match.season] ++                   //method (ii)
-//         }
-//         else{
-//             matcheswonperyear[match.winner][match.season] =1
-//         }
-//         return matcheswonperyear;
-//     },{})
+const numberOfmatchesWonPerTeamPerYear = (matches) => {
+    return matches.reduce((matcheswonperyear,match) => {
+        if (! matcheswonperyear[match.winner]) {
+            matcheswonperyear[match.winner] = {}
+        }
+        if (matcheswonperyear[match.winner][match.season]) {
+            matcheswonperyear[match.winner][match.season] ++                   //method (ii)
+        }
+        else{
+            matcheswonperyear[match.winner][match.season] =1
+        }
+        return matcheswonperyear;
+    },{})
 
-// }
+}
 // console.log(numberOfmatchesWonPerTeamPerYear(matches))
 
 

@@ -5,7 +5,9 @@
                 })
                 .then(data => {
                     let arr1 = Object.keys(data)
+                    console.log("arr1 :",arr1)
                     let arr2 = Object.values(data)
+                    console.log('arr2:',arr2)
                     graphdata = []
                     const matchesdata = arr1.map(match=>{
                         let team = { }
@@ -15,7 +17,7 @@
 
 
                     })
-                    console.log(graphdata)
+                    console.log("graphdata:",graphdata)
                     Highcharts.chart('container', {
                         chart: {
                             type: 'column',
@@ -33,7 +35,7 @@
                             }
                         },
                         xAxis: {
-                            categories: Object.keys(arr2[2])
+                            categories: Object.keys(arr2[0])
                         },
                         yAxis: {
                             title: {

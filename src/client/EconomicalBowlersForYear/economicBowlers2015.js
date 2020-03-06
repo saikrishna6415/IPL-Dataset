@@ -1,10 +1,10 @@
-    fetch('../../output/EconomicalBowlersForYear.JSON')
+    fetch('http://localhost:3000/EconomicalBowlersForYear.JSON')
                 .then((res) => {
                     console.log(res)
                     return res.json()
                 })
                 .then(data => {
-                    Highcharts.chart('container', {
+                    Highcharts.chart('container4', {
                         chart: {
                             type: 'column',
                            

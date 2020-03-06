@@ -1,10 +1,10 @@
-    fetch('../../output/numberOfMatchesPlayedPerYear.JSON')
+    fetch('http://localhost:3000/numberOfMatchesPlayedPerYear')
                 .then((res) => {
                     console.log(res)
                     return res.json()
                 })
                 .then(data => {
-                    Highcharts.chart('container', {
+                    Highcharts.chart('container1', {
                         chart: {
                             type: 'column',
                            

@@ -1,5 +1,5 @@
 
-    fetch('../../output/numberOfmatchesWonPerTeamPerYear.JSON')
+    fetch('http://localhost:3000/numberOfmatchesWonPerTeamPerYear.JSON')
                 .then((res) => {
                     return res.json()
                 })
@@ -16,7 +16,7 @@
 
                     })
                     console.log(graphdata)
-                    Highcharts.chart('container', {
+                    Highcharts.chart('container2', {
                         chart: {
                             type: 'column',
                            

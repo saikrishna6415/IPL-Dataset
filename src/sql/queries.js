@@ -27,6 +27,13 @@ client.connect()
 .then(() =>client.query('SELECT bowling_team,sum(extra_runs) FROM matches INNER JOIN deliveries ON matches.id = deliveries.match_id WHERE season = 2016 GROUP BY bowling_team'))
 .then((results => console.table(results.rows)))
 
+
+//top 10 economical bowlers in 2015 
+// SELECT bowler,sum(batsman_runs) as runs , count(ball) as balls FROM matches INNER JOIN deliveries ON matches.id = deliveries.match_id WHERE season = 2015 and deliveries.extra_runs = 0 GROUP BY bowler order by runs asc 
+.then(()=> console.log("showing table top ten economical bowlers in 2015"))
+.then(() =>client.query('SELECT bowler,((sum(batsman_runs)*1.0/  count(ball)*1.0)*6 ) as economy FROM matches INNER JOIN deliveries ON matches.id = deliveries.match_id WHERE season = 2015 and deliveries.extra_runs = 0 and deliveries.noball_runs = 0 and deliveries.wide_runs = 0 GROUP BY bowler order by economy asc  limit 10'))
+.then((results => console.table(results.rows)))
+
 .catch(e=> console.log)
 .finally(()=>client.end().then(console.log("client disconnected")))
 
